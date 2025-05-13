@@ -2,7 +2,7 @@
  $host = 'localhost'; 
  $db = 'users'; 
  $user = 'root'; 
- $pass = 'zeent'; 
+ $pass = ''; 
  
  $conn = new mysqli($host, $user, $pass, $db);
 //  function nosup(): void {
