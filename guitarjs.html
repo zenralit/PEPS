@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Электрогитара</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(#1a1a1a, #000);
+      color: #eee;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      user-select: none;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 32px;
+    }
+
+    .fretboard {
+      
+      background-size: cover;
+      padding: 20px 10px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #0f0;
+      margin-top: 100px;
+    }
+
+    .string {
+      display: flex;
+      height: 28px;
+      align-items: center;
+      position: relative;
+    }
+
+    .fret {
+        flex: 1;
+        height: 10px;
+      border-left: 10px solid rgba(255, 255, 255, 0.15);
+      border-right: 10px solid rgba(255, 255, 255, 0.15);
+      background: rgba(0,0,0,0.2);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .fret.active {
+      background: rgba(0, 255, 0, 0.4);
+    }
+
+    .string::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(to right, #ccc, #999, #ccc);
+      z-index: 1;
+    }
+
+    .dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin: -4px 0 0 -4px;
+      background: white;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .fret-number {
+      font-size: 10px;
+      color: #888;
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+
+<h1>PEPS@ONLINE</h1>
+
+<div class="fretboard" id="fretboard"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/tone@latest/build/Tone.min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const tuning = ["E2", "A2", "D3", "G3", "B3", "E4"];
+  const fretCount = 12;
+  const fretboard = document.getElementById('fretboard');
+
+  //звук
+  const distortion = new Tone.Distortion(0.7).toDestination();
+  const synth = new Tone.MonoSynth({
+    oscillator: { type: "sawtooth" },
+    envelope: { attack: 0.1, decay: 0.2, sustain: 0.8, release: 1 },
+  }).connect(distortion);
+
+  let isMouseDown = false;
+  let currentFret = null;
+
+  tuning.forEach(openNote => {
+    const stringDiv = document.createElement('div');
+    stringDiv.className = 'string';
+
+    for (let i = 0; i <= fretCount; i++) {
+      const fretDiv = document.createElement('div');
+      fretDiv.className = 'fret';
+      fretDiv.dataset.note = Tone.Frequency(openNote).transpose(i).toNote();
+
+      if ([3,5,7,9,12].includes(i)) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        fretDiv.appendChild(dot);
+      }
+
+      const fretNumber = document.createElement('div');
+      fretNumber.className = 'fret-number';
+      fretNumber.textContent = i;
+      fretDiv.appendChild(fretNumber);
+
+      // Играть ноту при нажатии
+      fretDiv.addEventListener('mousedown', async (e) => {
+        await Tone.start();
+        const note = e.currentTarget.dataset.note;
+        synth.triggerAttack(note);
+        currentFret = e.currentTarget;
+        currentFret.classList.add('active');
+        isMouseDown = true;
+      });
+
+      // слайды
+      fretDiv.addEventListener('mouseenter', (e) => {
+        if (isMouseDown) {
+          if (currentFret) currentFret.classList.remove('active');
+          const note = e.currentTarget.dataset.note;
+          synth.triggerAttack(note);
+          currentFret = e.currentTarget;
+          currentFret.classList.add('active');
+        }
+      });
+
+      stringDiv.appendChild(fretDiv);
+    }
+
+    fretboard.appendChild(stringDiv);
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (currentFret) currentFret.classList.remove('active');
+    synth.triggerRelease();
+    isMouseDown = false;
+  });
+});
+</script>
+
+</body>
+</html>

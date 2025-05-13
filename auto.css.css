@@ -1,0 +1,235 @@
+ 
+.form {
+  background-color: #fff;
+  display: block;
+  padding: 1rem;
+  max-width: 360;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0, 0, 0), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  position: sticky;
+}
+
+
+.form-title {
+  font-size: 28px;
+  color: rgb(172, 38, 225);
+  font-weight: 600;
+  letter-spacing: -1px;
+  align-items: center;
+
+  font-weight: 600;
+  text-align: center;
+ 
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input, .form button {
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin-right: 8px;
+
+}
+
+.input-container input {
+  background-color: #fff;
+  padding: 1rem;
+  padding-right: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.submit {
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: rgb(172, 38, 225);
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.signup-link {
+  color: #010101;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.signup-link a {
+  text-decoration: none;
+}
+/*кнопка*/
+
+.theme-checkbox {
+  --toggle-size: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 6.25em;
+  height: 3.125em;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #efefef), color-stop(50%, #2a2a2a)) no-repeat;
+  background: -o-linear-gradient(left, #000000 50%, #d5d5d5 50%) no-repeat;
+  background: linear-gradient(to right, #1b1b1b 50%, #cbcbcb 50%) no-repeat;
+  background-size: 205%;
+  background-position: 0;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 99em;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--toggle-size);
+}
+
+.theme-checkbox::before {
+  content: "";
+  width: 2.25em;
+  height: 2.25em;
+  position: absolute;
+  top: 0.438em;
+  left: 0.438em;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #efefef), color-stop(50%, #2a2a2a)) no-repeat;
+  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background-size: 205%;
+  background-position: 100%;
+  border-radius: 50%;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.theme-checkbox:checked::before {
+  
+  left: calc(100% - 2.25em - 0.438em);
+  background-position: 0;
+}
+
+.theme-checkbox:checked {
+  background-position: 100%;
+}
+
+/* форма регистрации*/
+
+.form  {
+  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: sticky;
+}
+
+.title {
+
+  font-size: 28px;
+  color: rgb(172, 38, 225);
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 35%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.message, .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: rgb(172, 38, 225);
+}
+
+.signin a:hover {
+  text-decoration: underline rgb(172, 38, 225);
+}
+
+.flex {
+  display: flex;
+  gap: 6px;
+  max-width: 350px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: green;
+}
+
+
+
+
+/* переключение темы*/
+:root {
+  --var-bgcolor: #000000;
+  --var-fontcolor: #ebe9e9;
+}
+
+[dark] {
+  --var-bgcolor: #e7e7e7;
+  --var-fontcolor: #000000;
+    
+}
+
+body {
+  background-color: var(--var-bgcolor);
+  color: var(--var-fontcolor);
+}
+a{
+  color: rgb(172, 38, 225);
+  text-decoration: none;
+}

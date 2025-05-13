@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="auto.css.css">
+    <title>autorization</title>
+</head>
+<body>
+
+  <form class="form" class="title" style=" width: 360px;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 0px 150px rgba(255, 255, 255, 0.808);"
+  action="auto.php" method="post">
+     <p class="form-title">Вход в аккаунт</p> 
+      <div class="input-container">
+        <input type="email " placeholder="Enter email" name="email" id="email">
+        <span>
+        </span>
+    </div>
+    <div class="input-container">
+        <input type="password" placeholder="Enter password" name="password" id="password" >
+      </div>
+  
+       <button type="submit" class="submit" > 
+        
+    войти
+    </button>
+    
+    <p class="signup-link">
+      нет аккаунта?
+      <a href="reg_sup.php">создать</a>
+    </p>
+   
+ </form>
+ <!-- кнопка переключения темы -->
+<center>
+ <input type="checkbox" class="theme-checkbox" 
+ style=" width: 60px;
+ margin-top: 50px;
+ margin-left: auto;
+ margin-right: auto;
+ box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.808);"
+ onchange="changeTheme(this.checked)">
+</center>
+
+
+ <script src="auto_switch_theme.js"></script>
+</body>
+</html>
+

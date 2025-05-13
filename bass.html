@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guitar</title>
+    <link rel="stylesheet" href="mainpagecss.css">
+    <link rel="stylesheet" href="productstyle.css">
+</head>
+<body>
+    
+   
+<header class="header">
+    <!-- Боковое меню -->
+   <button class="menu-btn menu-button " onclick="toggleMenu()">
+       <span></span>
+       <span></span>
+       <span></span>
+   </button>
+   
+<div id="side-menu" class="side-menu">
+   <a href="main_page.php">main page</a>
+   <a href="product_page.html">Products</a>
+  
+   <a href="#">Information</a>
+   <a href="#">FAQ</a>
+
+</div>
+
+
+<div id="overlay" class="overlay"></div>
+<a href="main_page.php">
+   <div class="logo"> <img src="logo.png" alt="" style="width: 150px; height: 100px;"></div>
+</a>
+   <div class="icon-buttons">
+        <button class="search" aria-label="Поиск" onclick="callsearc()"> <img src="search.svg" alt="" style="height: 20px; width: 20px;"></button>
+       <a href="user_cabinet.php"><button class="cart" aria-label="Корзина"> <img src="shopping-cart.svg" alt="" style="height: 20px; width: 20px;"></button></a>
+       <FOrm action="C:\xampp\htdocs\my_project\auto_main.html">
+        <button class="profile" aria-label="Личный кабинет" onclick="callprofile()" type="submit" > <img src="user.svg" alt="" style="height: 20px; width: 20px; padding-right: 30px;"  ></button>
+      </FOrm>
+   </div>
+</header>
+
+
+
+<div style="height: 90px; background-color: block;">
+
+</div>
+
+   
+   
+
+
+</div>
+
+
+
+<div class="product-catalog">
+   
+   <div class="product-card">
+    <a href="product.php?product_id=9">
+     <img src="https://www.ibanez.com/common/product_artist_file/file/pm_thum_eb_uprightbass_en.png" alt="AZ"></a>
+     <h3>Upright Bass</h3>
+   </div>
+   <div class="product-card">
+    <a href="product.php?product_id=10">
+     <img src="https://www.ibanez.com/common/product_artist_file/file/pm_thum_eb_sr_jp.jpg" alt="AZES"></a>
+     <h3>SR</h3>
+   </div>
+  
+   <div class="product-card">
+    <a href="product.php?product_id=11">
+     <img src="https://www.ibanez.com/common/product_artist_file/file/pm_thum_eb_btb_en.jpg" alt="RG"></a>
+     <h3>BTB</h3>
+   </div>
+   <div class="product-card">
+    <a href="product.php?product_id=12">
+     <img src="https://www.ibanez.com/common/product_artist_file/file/pm_thum_eb_ehb_en.png" alt="RGA"></a>
+     <h3>EHB</h3>
+   </div>
+   <div class="product-card">
+    <a href="product.php?product_id=13">
+      <img src="https://www.ibanez.com/common/product_artist_file/file/pm_thum_eb_talman_bass_en.png" alt="RGD"></a>
+      <h3>Talman Bass</h3>
+    </div>
+    <div class="product-card">
+      <a href="product.php?product_id=14">
+      <img src="https://www.ibanez.com/common/product_artist_file/file/pm_thum_eb_rgb_en.png" alt="Q"></a>
+      <h3>RGB</h3>
+    </div>
+    <div class="product-card">
+      <a href="product.php?product_id=15">
+      <img src="https://www.ibanez.com/common/product_artist_file/file/pm_thum_eb_mikro_bass_en.jpg" alt="X"></a>
+      <h3>MIKRO</h3>
+    </div>
+    <div class="product-card">
+      <a href="product.php?product_id=16">
+      <img src="https://www.ibanez.com/common/product_artist_file/file/pm_thum_eb_srmd_en.jpg" alt="ICEMAN"></a>
+      <h3>SR MEZZO</h3>
+    </div>
+    
+ </div>
+ <footer class="footer">
+  <div><a href="#tt">ТТ</a></div>
+  <div><a href="#insta">ИНСТА</a></div>
+  <div><a href="#insta">телега</a></div>
+  <div><a href="#insta">вк</a></div>
+</footer>
+ 
+       
+<script src="main_page_scripts.js">
+  
+</script>
+
+</html>
